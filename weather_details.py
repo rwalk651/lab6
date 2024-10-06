@@ -5,7 +5,7 @@ def set_location():
     lat = 44.97
     lon = -93.26
 
-    location = f'lat={lat}&lon={lon}'
+    location = [lat, lon]
     return location
 
 
@@ -45,7 +45,7 @@ def get_temp(data):
 
 def get_description(data):
     try:
-        description = data['weather']['description']
+        description = data['weather'][0]['description']
         return description
     except KeyError:
         print(unexpected_format())
